@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detective Impact</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='logoimpact.ico') }}">
+</head>
+<body>
+    <video autoplay muted loop src="{{ url_for('static', filename='bg.mp4') }}"></video>
+    <div class="container">
+        <img src="{{ url_for('static', filename='logo lucu.png') }}" alt="Image" class="center">
+        <h1>Detective Impact</h1>
+        <p>Hello, {{ username }}!</p>
+        <br>
+        <form action="/start" method="post">
+            <button type="submit" class="btn btn--blue">
+                <span class="btn__txt">Start</span>
+                <i class="btn__bg" aria-hidden="true"></i>
+                <i class="btn__bg" aria-hidden="true"></i>
+                <i class="btn__bg" aria-hidden="true"></i>
+                <i class="btn__bg" aria-hidden="true"></i>
+            </button>
+        </form>
+    </div>
+</body>
+</html>

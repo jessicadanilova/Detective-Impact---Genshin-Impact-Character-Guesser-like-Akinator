@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detective Impact</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+        <link rel="icon" href="{{ url_for('static', filename='logoimpact.ico') }}">
+
+</head>
+<body>
+    <video autoplay muted loop src="{{ url_for('static', filename='bg.mp4') }}"></video>
+    <div class="container">
+        <img src="{{ url_for('static', filename='question.png') }}" alt="Image" class="center">
+        <h1>Detective Impact</h1>
+        <div class="question-box">
+            <label id="botQuestion">{{ question }}</label>
+            <button id="micButton" class="mic-button" onclick="window.location.href='/voice_question'">
+                <img src="{{ url_for('static', filename='mic.svg') }}">
+            </button>
+        </div>
+        <form id="answerForm" action="/question" method="post" class="answer-buttons">
+            <button type="submit" name="answer" value="yes">Yes</button>
+            <button type="submit" name="answer" value="idk">I Don't Know</button>
+            <button type="submit" name="answer" value="no">No</button>
+        </form>
+    </div>
+</body>
+</html>

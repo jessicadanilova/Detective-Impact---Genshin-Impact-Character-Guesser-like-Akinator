@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detective Impact</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='logoimpact.ico') }}">
+</head>
+<body>
+    <video autoplay muted loop src="{{ url_for('static', filename='bg.mp4') }}"></video>
+    <div class="container">
+        <img src="{{ url_for('static', filename='answer.png') }}" alt="Image" class="center">
+        <h1>Detective Impact</h1>
+        <div class="result-box">
+            <p>Your character is {{ character['name'] }}!</p>
+            <img src="{{ url_for('static', filename='hutao.png') }}" alt="Character Image" class="char">
+        </div>
+        <div class="button-container">
+            <form action="/character_correct" method="post">
+                <button type="submit" class="restart-button">Yes</button>
+            </form>
+            <form action="/character_incorrect" method="post">
+                <button type="submit" class="restart-button">No</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

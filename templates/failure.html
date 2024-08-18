@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detective Impact</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='logoimpact.ico') }}">
+</head>
+<body>
+    <video autoplay muted loop src="{{ url_for('static', filename='bg.mp4') }}"></video>
+    <div class="container">
+        <img src="{{ url_for('static', filename='fail.png') }}" alt="Image" class="center">
+        <h1>Detective Impact</h1>
+        <div class="failure-box">
+            <span>Unable to determine your character. Please try again.</span>
+        </div>
+        <form action="/">
+            <button type="submit" class="restart-button">Go back to start</button>
+        </form>
+    </div>
+</body>
+</html>

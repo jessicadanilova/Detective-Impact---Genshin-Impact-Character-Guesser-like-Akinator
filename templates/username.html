@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detective Impact</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='logoimpact.ico') }}">
+    <script>
+        window.addEventListener('click', function () {
+            var audio = document.getElementById("backsound"); 
+            audio.volume = 0.4;
+            audio.play();
+        });
+
+        function toggleMute() {
+            var audio = document.getElementById("backsound");
+            audio.muted = !audio.muted;
+            var muteImage = document.getElementById("muteImage");
+            var unmuteImage = document.getElementById("unmuteImage");
+            if (audio.muted) {
+                muteImage.style.display = "none";
+                unmuteImage.style.display = "block";
+            } else {
+                muteImage.style.display = "block";
+                unmuteImage.style.display = "none";
+            }
+        }
+    </script>
+    <style>
+        #muteButton {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #007BFF;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            position: absolute;
+            right: 5%;
+            top: 90%;
+        }
+
+        #muteButton img {
+            width: 24px;
+            height: 24px;
+        }
+
+        #muteButton:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <video autoplay muted loop src="{{ url_for('static', filename='bg.mp4') }}"></video>
+    <audio autoplay loop id="backsound">
+        <source src="{{ url_for('static', filename='bs.mp3') }}">
+    </audio>
+    <div class="container">
+        <img src="{{ url_for('static', filename='logoimpact.png') }}" alt="Image" class="center">
+        <form action="/set_username" method="post">
+            <input type="text" name="username" placeholder="Enter your username" required>
+            <button type="submit" class="btn btn--blue">
+                <span class="btn__txt">Submit</span>
+                <i class="btn__bg" aria-hidden="true"></i>
+                <i class="btn__bg" aria-hidden="true"></i>
+                <i class="btn__bg" aria-hidden="true"></i>
+                <i class="btn__bg" aria-hidden="true"></i>
+            </button>
+        </form>
+        <button id="muteButton" onclick="toggleMute()">
+            <img id="muteImage" src="{{ url_for('static', filename='mute.png') }}" alt="Mute">
+            <img id="unmuteImage" src="{{ url_for('static', filename='unmute.png') }}" alt="Unmute" style="display: none;">
+        </button>
+    </div>
+</body>
+</html>
